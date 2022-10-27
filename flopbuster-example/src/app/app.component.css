@@ -1,0 +1,13 @@
+img {
+    max-width: 150px;
+    max-height: 250px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.inner {
+    margin: 25px;
+}

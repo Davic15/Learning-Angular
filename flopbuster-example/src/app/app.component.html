@@ -1,0 +1,32 @@
+<h1>Some Flops</h1>
+{{ selectedIndex }}
+<div class="container">
+  <div class="inner">
+    <h3 [hidden]="!isSelected(0)">Chosen!</h3>
+    <img src="../assets/img1.jpg">
+    <br />
+    <button [disabled]="anySelected() && !isSelected(0)" (click)="OnVoteClick(0)">{{ getButtonText(0) }}</button>
+  </div>
+
+  <div class="inner">
+    <h3 [hidden]="!isSelected(1)">Chosen!</h3>
+    <img src="../assets/img2.jpg">
+    <br />
+    <button [disabled]="anySelected() && !isSelected(1)" (click)="OnVoteClick(1)">{{ getButtonText(1) }}</button>
+  </div>
+
+  <div class="inner">
+    <h3 [hidden]="!isSelected(2)">Chosen!</h3>
+    <img src="../assets/img3.jpg">
+    <br />
+    <button [disabled]="anySelected() && !isSelected(2)" (click)="OnVoteClick(2)">{{ getButtonText(2) }}</button>
+  </div>
+
+  <div class="inner">
+    <h3 [hidden]="!isSelected(3)">Chosen!</h3>
+    <img src="../assets/img4.jpg">
+    <br />
+    <button [disabled]="anySelected() && !isSelected(3)" (click)="OnVoteClick(3)">{{ getButtonText(3) }}</button>
+  </div>
+  
+</div>
