@@ -1,7 +1,7 @@
-<div class="card bg-dark text-light" style="width:10rem; height: 100%;">
-    <div class="card-body" style="display: flex; flex-direction: column; justify-content: space-between;">
+<div class="card bg-dark text-light">
+    <div class="card-body">
         <h6>{{ movie.title }}</h6>
         <img [src]="movie.image" alt="movie" class="mb-3">
-        <button (click)="onRentalButtonClick(movie)" class="btn btn-primary" style="align-self: flex-start;">Rent</button>
+        <button (click)="onRentalButtonClick(movie)" class="btn btn-primary">Rent</button>
     </div>
 </div>

@@ -1,3 +1,13 @@
 p {
     font-family: Lato;
 }
+
+.main-container {
+    background-color:#ccc; 
+    border-radius:0.25rem
+}
+
+.rental-container {
+    display:flex; 
+    justify-content:space-around
+}

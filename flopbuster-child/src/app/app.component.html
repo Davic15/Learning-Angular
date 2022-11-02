@@ -1,6 +1,6 @@
-<h1>Flopbuster</h1>
+<h4>Flopbuster</h4>
 
-<div class="jumbotron d-flex m-1 mb-4" >
+<div class="d-flex m-1 mb-4 p-2 main-container" >
   <div class="p-2 col-6" >
     We have all the best flops in the business!
     <br>
@@ -14,7 +14,7 @@
   
 </div>
 
-<div style="display:flex; justify-content:space-around">
+<div class="rental-container">
   <my-movie-tile (rentMovie)="onRentMovie($event)" [movie]="theRoom"></my-movie-tile>
   <my-movie-tile (rentMovie)="onRentMovie($event)" [movie]="wingCommander"></my-movie-tile>
 </div>
