@@ -17,6 +17,7 @@ export class AppComponent {
     yearReleased: 1999,
     rating: "PG-13",
     imdbLink: "https://www.imdb.com/title/tt0131646/",
+    image: "assets/images/wing.jpg",
     soundtrack: {
       spotifyLink: "https://open.spotify.com/album/6kYCucnWN8EzKDCro12m5x?si=rR_Sb8NbQ62AYQHjN6tlXw"
     }
@@ -30,11 +31,23 @@ export class AppComponent {
 		"director": "Tommy Wiseau",
 		"cast": ["Tommy Wiseau", "Juliette Danielle", "Greg Sestero"],
 		"imdblink": "https://www.imdb.com/title/tt0368226/",
-		"image": "/images/the-room.jpg"
+		"image": "assets/images/cat.jpg"
 	}
 
-  addRental(movie: any) {
+  /*addRental(movie: any) {
     this.rentalList.count++;
     this.rentalList.titles += ', ' + movie.title;
+  }*/
+
+  onRentMovie(movie: any) {
+    console.log('movie rented ' + movie.title)
+    this.rentalList.count++;
+    this.rentalList.titles += ', ' + movie.title;
+  }
+
+  onClearRentalList(){
+    console.log("Clear Clicked");
+    this.rentalList.count = 0;
+    this.rentalList.titles = '';
   }
 }

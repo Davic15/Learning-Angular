@@ -9,12 +9,12 @@
 
   
   <div class="card p-2 col-6" >
-    <app-movie-rental [rentalList]="rentalList"></app-movie-rental>
+    <app-movie-rental (clearRentalList)="onClearRentalList()" [rentalList]="rentalList"></app-movie-rental>
   </div>
   
 </div>
 
 <div style="display:flex; justify-content:space-around">
-  <my-movie-tile [movie]="theRoom" (click)="addRental(theRoom)"></my-movie-tile>
-  <my-movie-tile [movie]="wingCommander" (click)="addRental(wingCommander)"></my-movie-tile>
+  <my-movie-tile (rentMovie)="onRentMovie($event)" [movie]="theRoom"></my-movie-tile>
+  <my-movie-tile (rentMovie)="onRentMovie($event)" [movie]="wingCommander"></my-movie-tile>
 </div>

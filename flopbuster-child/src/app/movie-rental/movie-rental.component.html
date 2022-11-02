@@ -1,4 +1,5 @@
 <div class="card-body">
     <h6>Rental List</h6>
     <p>Rented {{ rentalList.count }} movies: {{ rentalList.titles }}</p>
+    <button (click)="onClearClick()" class="btn btn-primary">Clear Rentals</button>
 </div>

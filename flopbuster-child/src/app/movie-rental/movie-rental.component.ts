@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-movie-rental',
@@ -7,9 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MovieRentalComponent implements OnInit {
   @Input() rentalList: any;
+  @Output() clearRentalList = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClearClick() {
+    this.clearRentalList.emit()
   }
 
 }
