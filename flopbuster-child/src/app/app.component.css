@@ -2,12 +2,12 @@ p {
     font-family: Lato;
 }
 
-.main-container {
+.rounded-gray-panel {
     background-color:#ccc; 
     border-radius:0.25rem
 }
 
-.rental-container {
+.movie-panels {
     display:flex; 
     justify-content:space-around
 }

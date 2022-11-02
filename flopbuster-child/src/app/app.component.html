@@ -1,20 +1,19 @@
 <h4>Flopbuster</h4>
 
-<div class="d-flex m-1 mb-4 p-2 main-container" >
+<div class="d-flex m-1 mb-4 p-2 rounded-gray-panel" >
   <div class="p-2 col-6" >
     We have all the best flops in the business!
     <br>
     Choose a flop to rent
   </div>
 
-  
   <div class="card p-2 col-6" >
-    <app-movie-rental (clearRentalList)="onClearRentalList()" [rentalList]="rentalList"></app-movie-rental>
+    <app-movie-rental (clearRentalList)="onClearRentalList()" [rentalList]="rentalListService.currentRentals"></app-movie-rental>
   </div>
   
 </div>
 
-<div class="rental-container">
+<div class="movie-panels">
   <my-movie-tile (rentMovie)="onRentMovie($event)" [movie]="theRoom"></my-movie-tile>
   <my-movie-tile (rentMovie)="onRentMovie($event)" [movie]="wingCommander"></my-movie-tile>
 </div>

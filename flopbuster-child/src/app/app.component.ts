@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RentalListService } from './rental-list.service';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'flopbuster-child';
-  rentalList = {
-    count: 4,
-    titles: 'Cats, Howard the Duck, Jack and Jill, Batman and Robin'
-  }
+
+  constructor(public rentalListService: RentalListService) {}
 
   wingCommander = {
     title: "Wing Commander",
@@ -40,14 +39,10 @@ export class AppComponent {
   }*/
 
   onRentMovie(movie: any) {
-    console.log('movie rented ' + movie.title)
-    this.rentalList.count++;
-    this.rentalList.titles += ', ' + movie.title;
+    this.rentalListService.rentMovie(movie)
   }
 
   onClearRentalList(){
-    console.log("Clear Clicked");
-    this.rentalList.count = 0;
-    this.rentalList.titles = '';
+    this.rentalListService.clear();
   }
 }
