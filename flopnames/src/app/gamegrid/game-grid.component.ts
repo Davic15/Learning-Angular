@@ -23,21 +23,10 @@ export class GameGridComponent {
 
     selectedTile(x: number, y: number) {
         (this as any)['tileClass'+ x + y] = this.game.gridKey[x][y];
-        this.countTile(this.game.gridKey[x][y])
+        this.game.countTile(this.game.gridKey[x][y])
         let result = this.game.checkForWinner(this.game.gridKey[x][y])
         if (result.win === true) {
             this.teamWon.emit(result.team)
         }
     }
-
-    countTile(tileCategory: string) {
-        if(tileCategory === 'red') {
-            this.game.redTilesSelected++;
-        }
-        if(tileCategory === 'blue') {
-            this.game.blueTilesSelected++;
-        }
-    }
-
-
 }

@@ -30,4 +30,13 @@ export class GameService {
         }
         return { win: false, team: 'no' }
     }
+
+    countTile(tileCategory: string) {
+        if(tileCategory === 'red') {
+            this.redTilesSelected++;
+        }
+        if(tileCategory === 'blue') {
+            this.blueTilesSelected++;
+        }
+    }
 }
