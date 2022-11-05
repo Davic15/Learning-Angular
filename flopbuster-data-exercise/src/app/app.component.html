@@ -1,0 +1,10 @@
+<h4>Flopbuster Watch List</h4>
+
+<div *ngFor="let list of watchList | slice:0:endValue; index as i;">
+  <app-watch-list-item [item]="list" [index]="i" [last]="watchList.length" (up)="moveItemUp(i)" (down)="moveItemDown(i)"></app-watch-list-item>
+</div>
+<button 
+    *ngIf="endValue < watchList.length"
+    class="btn btn-primary" 
+    (click)="showAllMovies()"
+  >Show all</button>
