@@ -1,4 +1,4 @@
-<div class="card bg-dark text-light m-1" [style.border]="tileBorder">
+<div class="card bg-dark text-light m-1" [class.red-border]="movie.stars < 4" [style.border]="tileBorder">
     <div class="card-body">
     <img 
     src="{{'https://m.media-amazon.com/images' + movie.shortImageUrl}}" 
@@ -6,7 +6,12 @@
     alt=""
     >
 
-    <button 
+    <!--<button 
       class="btn btn-success btn-sm" [style.color]="buttonColor">Rent</button>
-    </div>
+    </div>-->
+    <button 
+      [class]="'btn btn-success btn-sm ' + getButtonTextColorClass()"
+      
+      (click)="onClick()"
+    >Rent</button>
 </div>

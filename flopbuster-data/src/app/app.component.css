@@ -9,3 +9,8 @@ p {
 .movie-panels {
     display:flex; justify-content:space-around;
 }
+
+.red-text-custom {
+    color: red;
+    background-color: yellow;
+}

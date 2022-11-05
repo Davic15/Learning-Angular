@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FLOP_DATA } from './FLOP_DATA';
+import { FLOP_DATA, ACTORS } from './FLOP_DATA';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -9,15 +9,18 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent {
   title = 'flopbuster-data';
+  favoriteActorsArray: string[] = [];
   rentalList = {
     count: 1,
     titles: "Cats"
   }
 
   flopData;
+  actors;
 
   constructor( private titleService: Title) {
     this.flopData = FLOP_DATA;
+    this.actors = ACTORS;
     titleService.setTitle('Flopbox')
   }
 
@@ -30,5 +33,14 @@ export class AppComponent {
   onClearRentalList() {
     this.rentalList.count = 0;
     this.rentalList.titles = "";
+  }
+
+  logActor(actor: any) {
+    console.log(actor.name)
+  }
+
+  logActorFromChild(nameActor: string) {
+    console.log(nameActor)
+    this.favoriteActorsArray.push(nameActor)
   }
 }

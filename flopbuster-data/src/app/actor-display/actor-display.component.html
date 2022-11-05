@@ -1,0 +1,14 @@
+<!--<div
+    class="bg-dark text-light p-3 rounded mb-2"
+    (click)="logActor(actor)">
+    <span [class.text-danger]="even">{{even}} {{index}}) {{ actor.name }}</span>
+</div>-->
+
+<div
+    class="bg-dark text-light p-3 rounded mb-2"
+    (click)="logActor(actor)"
+    (click)="onClick();"
+    >
+    <i *ngIf="selected" class="material-icons">done</i>
+    <span>{{ actor.name }}</span>
+</div>

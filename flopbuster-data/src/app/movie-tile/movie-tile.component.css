@@ -13,3 +13,7 @@ img {
 button {
     align-self:flex-start;
 }
+
+.red-border {
+    border: 5px solid red;
+}

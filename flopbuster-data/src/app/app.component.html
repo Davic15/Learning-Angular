@@ -18,8 +18,33 @@
 image:
 <img id="movieImage" src="" alt="">
  
-
 <div class="movie-panels">
   <app-movie-tile [movie]="flopData.wingCommander"></app-movie-tile >
   <app-movie-tile  [movie]="flopData.catwoman"></app-movie-tile >
+</div>
+
+<br>
+
+<p>My Favorite Actors</p>
+<ul>
+  <li 
+    *ngFor="let item of favoriteActorsArray; even as e; last as l"
+    [class.text-success]="e"
+    [class.text-info]="!e"
+    [class.text-warning]="l"
+  >{{item}}</li>
+</ul>
+
+<p>All Actors</p>
+<app-actor-display *ngFor="let actor of actors; index as i, even as e" [actor]="actor" [index]="i" [even]="e" (favoriteActor)="logActorFromChild(actor.name)"></app-actor-display>
+
+<p>Flopbuster for Kids</p>
+<div *ngFor="let actor of actors">
+  <span [ngSwitch]="actor.credits">
+    <i *ngSwitchCase="72" class="material-icons">sentiment_very_satisfied</i>
+    <i *ngSwitchCase="75" class="material-icons">sentiment_satisfied</i>
+    <i *ngSwitchCase="57" class="material-icons">sentiment_very_dissatisfied</i>
+    <i *ngSwitchDefault="" class="material-icons">sentiment_very_dissatisfied</i>
+  </span>
+  {{actor.name}}: Rated {{actor.credits}}
 </div>
