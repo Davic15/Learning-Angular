@@ -5,11 +5,13 @@
       <span *ngIf="rentalList.length == 0">No rentals</span>
   
     </h6>
-    <div *ngFor="let rental of rentalList" style="font-size:12px" [ngSwitch]="rental.title">
+    <div *ngFor="let rental of rentalList" style="font-size:12px">
       {{rental.title}}
-      <app-icon-cat *ngSwitchCase="'Cats'"></app-icon-cat> 
-      <app-icon-ship *ngSwitchCase="'Wing Commander'"></app-icon-ship> 
-      <app-icon-spider *ngSwitchCase="'Spider-Man 3'"></app-icon-spider> 
+      <span [ngSwitch]="rental.title">
+        <app-icon-cat *ngSwitchCase="'Cats'"></app-icon-cat> 
+        <app-icon-ship *ngSwitchCase="'Wing Commander'"></app-icon-ship> 
+        <app-icon-spider *ngSwitchCase="'Spider-Man 3'"></app-icon-spider> 
+      </span>
     </div>
   
   

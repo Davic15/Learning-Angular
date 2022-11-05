@@ -23,3 +23,14 @@
     ></app-movie-tile>
 </div>
 
+<br>
+<div  
+    class="bg-dark text-light p-3 rounded mb-2"
+    >
+    <div>{{flopDataPipe.length}}. {{flopDataPipe[0].name | titlecase}}</div>
+    <div>Favorite Quote: {{ flopDataPipe[0].quote | lowercase}}</div>
+    <div>Gross Earnings: {{ flopDataPipe[0].gross_earnings | currency:'USD':'symbol':'1.0-0' }}</div>
+    <div># of appearances: {{ flopDataPipe[0].credits | number }}</div>
+    <div>Date of Birth: {{ flopDataPipe[0].born | date:'longDate' }}</div>
+</div>
+

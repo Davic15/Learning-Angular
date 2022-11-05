@@ -2,6 +2,8 @@ export let FLOP_DATA =
 [
 	{
 		"title": "Cats",
+		"cost": 3,
+		"released": "1667676864156",
 		"year": 2019,
 		"stars": 2.7,
 		"rating": "PG",
@@ -13,6 +15,8 @@ export let FLOP_DATA =
 	},
 	{
 		"title": "Spider-Man 3",
+		"cost": 5,
+		"released": "1667676864156",
 		"year": 2007,
 		"stars": 6.2,
 		"rating": "PG-13",
@@ -24,6 +28,8 @@ export let FLOP_DATA =
 	},
   {
 		"title": "Wing Commander",
+		"cost": 1.50,
+		"released": "1667676864156",
 		"year": 1999,
 		"stars": 4.3,
 		"rating": "PG-13",

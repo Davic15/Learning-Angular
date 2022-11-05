@@ -8,5 +8,10 @@
         class="btn btn-success btn-sm" 
         (click)="onClick()"
         >Rent</button>
+        <div>{{movie.cost | currency:'USD'}}</div>
+        <div>{{movie.stars}}</div>
+        <div>{{movie.released | date:'shortDate'}}</div>
     </div>
 </div>
+
+

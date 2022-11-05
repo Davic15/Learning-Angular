@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FLOP_DATA } from './FLOP_DATA';
+import { ACTORS } from './FLOP_DATA_PIPE';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -9,12 +10,15 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent {
   title = 'flopbuster-data-two';
+  
+  flopDataPipe: any;
 
   rentalList: string[] = [];
   flopData;
 
   constructor(private titleService: Title) {
     this.flopData = FLOP_DATA
+    this.flopDataPipe = ACTORS;
     titleService.setTitle('Flopbox')
   }
 
@@ -25,5 +29,9 @@ export class AppComponent {
 
   onClearRentalList() {
     this.rentalList = []
+  }
+
+  ngOnInit(): void {
+    console.log(this.flopDataPipe[0].name)
   }
 }
