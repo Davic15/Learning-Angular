@@ -1,5 +1,6 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { GameService } from '../game.service';
+import { Tile } from '../models/Tile';
 
 @Component({
   selector: 'app-game-grid',
@@ -7,26 +8,15 @@ import { GameService } from '../game.service';
   styleUrls: ['./game-grid.component.css']
 })
 export class GameGridComponent {
-  @Input() currentTeam: string = '';
   @Output() teamWon = new EventEmitter();
 
-  tileClass00 = "";
-  tileClass01 = "";
-  tileClass02 = "";
-  tileClass10 = "";
-  tileClass11 = "";
-  tileClass12 = "";
-  tileClass20 = "";
-  tileClass21 = "";
-  tileClass22 = "";
-  constructor(private game: GameService) {}
-  selectTile(x:number,y:number) {
-    let className = this.game.gridKey[x][y];
-    (this as any)['tileClass'+ x + y] = this.game.gridKey[x][y];
-    this.game.countTile(className);
-    if(this.game.checkForWinner(className, this.currentTeam)) {
-      this.teamWon.emit(this.game.winner);
+  constructor(public game: GameService) {}
+
+  selectTile(tile: Tile ) {
+    tile.displayClass = tile.tileType;
+    this.game.countTile(tile.displayClass);
+    if(this.game.checkForWinner(tile.displayClass)) {
+      this.teamWon.emit(this.game.winner)
     }
   }
-
 }

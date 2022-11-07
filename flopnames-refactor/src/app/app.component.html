@@ -1,31 +1,30 @@
 <h1>Flopnames</h1>
 
-<h2>{{winningMessage}}</h2>
+<h2 *ngIf="game.gameOver">{{winningMessage}}</h2>
 
 <div style="margin-bottom:30px; margin-top:30px">
   <button (click)="setRedTeam()">Red</button>
   <button (click)="setBlueTeam()">Blue</button>
   <br>
-  Current Team: <span class="{{teamTextClass}}">{{currentTeam}}</span>
+  <!--Current Team: <span class="{{teamTextClass}}">{{currentTeam}}</span>-->
+  Current Team: <span 
+      [class.redtext]="game.currentTeam === game.redTeam"
+      [class.bluetext]="game.currentTeam === game.blueTeam"
+    >{{game.currentTeam.displayName}}</span>
 </div>
 
-<app-game-grid [currentTeam]="currentTeam"
+<app-game-grid
   (teamWon)="displayWinner($event)"
 ></app-game-grid>
 
-
 <button style="margin-top:10px" (click)="toggleKey()" >Toggle Key</button>
 
-<div class="keygrid" style="{{keyDisplay}}">
-  <div class="blue">o</div>
-  <div class="neutral"></div>
-  <div class="red">o</div>
-
-  <div class="assassin">x</div>
-  <div class="blue">o</div>
-  <div class="neutral"></div>
-
-  <div class="neutral"></div>
-  <div class="neutral"></div>
-  <div class="red">o</div>
+<div class="keygrid" [style.visibility]="keyVisibility">
+  <div 
+    *ngFor="let keyTyles of game.tiles" 
+    [class]="keyTyles.tileType"
+  >
+    <span *ngIf="keyTyles.tileType === 'assassin'">X</span>
+    <span *ngIf="keyTyles.tileType === 'red' || keyTyles.tileType === 'blue'">O</span>
+  </div>
 </div>

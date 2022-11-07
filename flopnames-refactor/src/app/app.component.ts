@@ -1,4 +1,7 @@
-import { Component, VERSION } from '@angular/core';
+import { Component } from '@angular/core';
+import{ Title } from '@angular/platform-browser';
+import { GameService } from './game.service';
+import { Team } from './models/Team';
 
 @Component({
   selector: 'app-root',
@@ -6,35 +9,33 @@ import { Component, VERSION } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'flopnames-refactor';
-
-  keyDisplay = "visibility:hidden";
-  currentTeam = "Red";
-  teamTextClass = "redtext";
+  keyVisibility = "hidden";
   winningMessage = "";
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  constructor(private title: Title, public game: GameService) {
+    this.title.setTitle('Flopnames')
   }
 
-  displayWinner(team: any) {
-    this.winningMessage = team + ' won!'
+  displayWinner(team: Team) {
+    this.winningMessage = team.displayName + ' won!';
+    this.title.setTitle('Flopnames - ' + team.displayName + ' won!');
   }
 
   setRedTeam() {
-    this.currentTeam = "Red";
-    this.teamTextClass = "redtext";
+    this.game.currentTeam = this.game.redTeam;
   }
 
   setBlueTeam() {
-    this.currentTeam = "Blue";
-    this.teamTextClass = "bluetext";
+    this.game.currentTeam = this.game.blueTeam;
   }
 
   toggleKey() {
-    if(this.keyDisplay === "") {
-      this.keyDisplay = "visibility:hidden";
+    if(this.keyVisibility === "hidden") {
+      this.keyVisibility = "visible";
     } else {
-      this.keyDisplay = "";
+      this.keyVisibility = "hidden";
     }
   }
 }
