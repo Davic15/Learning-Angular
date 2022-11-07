@@ -1,0 +1,31 @@
+<h1>Flopnames</h1>
+
+<h2>{{winningMessage}}</h2>
+
+<div style="margin-bottom:30px; margin-top:30px">
+  <button (click)="setRedTeam()">Red</button>
+  <button (click)="setBlueTeam()">Blue</button>
+  <br>
+  Current Team: <span class="{{teamTextClass}}">{{currentTeam}}</span>
+</div>
+
+<app-game-grid [currentTeam]="currentTeam"
+  (teamWon)="displayWinner($event)"
+></app-game-grid>
+
+
+<button style="margin-top:10px" (click)="toggleKey()" >Toggle Key</button>
+
+<div class="keygrid" style="{{keyDisplay}}">
+  <div class="blue">o</div>
+  <div class="neutral"></div>
+  <div class="red">o</div>
+
+  <div class="assassin">x</div>
+  <div class="blue">o</div>
+  <div class="neutral"></div>
+
+  <div class="neutral"></div>
+  <div class="neutral"></div>
+  <div class="red">o</div>
+</div>
