@@ -5,11 +5,17 @@
     
     alt=""
     >
+    <button 
+      (click)="onSaleButtonClicked()"
+      class="btn btn-sm mt-3"      
+      [class.btn-success]="movie.onSale"
+      [class.btn-danger]="!movie.onSale"
+    >On Sale</button>
 
     <button 
-      (click)="onClick()"
-      [class]="getClasses()"
-      
-      >Rent</button>
+      (click)="onDelete()"
+      class="btn btn-sm mt-3 btn-primary"
+    >Delete</button>
+    {{movie.onSale}}
     </div>
 </div>

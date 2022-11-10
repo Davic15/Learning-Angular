@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '../Movie';
 
 @Component({
@@ -8,6 +8,8 @@ import { Movie } from '../Movie';
 })
 export class MovieTileComponent implements OnInit {
   @Input() movie = {} as Movie;
+  @Output() changeOnSale = new EventEmitter();
+  @Output() delete = new EventEmitter();
   selected = false;
 
   ngOnInit() {
@@ -25,5 +27,13 @@ export class MovieTileComponent implements OnInit {
 
   onClick() {
     this.selected = true;
+  }
+
+  onSaleButtonClicked() {
+    this.changeOnSale.emit();
+  }
+
+  onDelete() {
+    this.delete.emit()
   }
 }

@@ -10,4 +10,8 @@ export class MovieService {
     getMovie() {
         return this.http.get('http://localhost:3000/movies')
     }
+
+    updateFlop(flop: any) {
+        return this.http.put(`http://localhost:3000/movies/${flop.id}`, flop)
+    }
 }
