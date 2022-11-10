@@ -1,0 +1,30 @@
+<h4>Flopbox</h4>
+
+<div class="header-panel d-flex m-1 mb-4 p-2" >
+  <div class="p-2 col-6">
+    We have all the best flops in the business!
+    <br>
+    Choose a flop to rent
+  </div>
+
+  
+  <div *ngIf="!loggedIn" class="card p-2 col-6" >
+    <b>Login</b>
+    <button 
+      (click)="onLogin()"
+      class="btn btn-success">Login</button>
+  </div>
+  
+</div>
+
+<b>Movies to Rent</b>
+<div *ngIf="loggedIn" class="movie-panels" style="flex-wrap:wrap">
+  
+  <app-movie-tile 
+    *ngFor="let flop of flops$ | async" 
+    class="mb-2" 
+    (rent)="addToRentalList(flop)"
+    [movie]="flop"></app-movie-tile>
+  
+</div>
+
