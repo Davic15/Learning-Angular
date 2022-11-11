@@ -1,0 +1,8 @@
+<h1>Flopbuster</h1>
+<div>
+  <p *ngFor="let actor of actors">{{actor.name}}</p>
+</div>
+
+<div>
+  <p *ngFor="let actor of actors$ | async">{{actor.name}}</p>
+</div>
