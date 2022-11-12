@@ -1,0 +1,17 @@
+<h1>Data Binding</h1>
+<div>
+  <h4>Congratulations!</h4>
+  <h4>The component is rendered.</h4>
+  <div style="margin-top: 30px;">
+    Event: {{event.name}}
+  </div>
+  <div>
+    Date: {{event.date}}
+  </div>
+  <div>
+    Time: {{event.time}}
+  </div>
+  <div>
+    <app-event-address [location]="event"></app-event-address>
+  </div>
+</div>
