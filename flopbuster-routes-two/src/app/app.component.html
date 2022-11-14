@@ -1,7 +1,18 @@
-<h4>Flopbox</h4>
+<nav class="nav bg-dark d-flex">
+    <h3 class="text-light m-1">
+        <a class="nav-link" routerLink="/">Flopbox</a>
+    </h3>
+    <a class="nav-link" routerLink="/actors" >Actors</a>
+    <a class="nav-link" routerLink="/watchlist" >Watch List</a>
+</nav>
 
-<a href="actors" >Actors</a>
-|
-<a href="watchlist">Watch List</a>
+
+<!--
+    <a href="actors" >Actors</a>
+    <a href="watchlist">Watch List</a>
+    <a [routerLink]="variable">Watch List</a>
+
+-->
+
 
 <router-outlet></router-outlet>

@@ -1,0 +1,10 @@
+<div>
+    <h4>Actors</h4>
+    <div 
+        *ngFor="let actor of actors; index as i"
+        class="bg-dark text-light p-3 rounded mb-2"
+    >
+        <!--<a routerLink="{{'/actors/' + actor.id}}">{{(i+1) + '. ' + actor.name}}</a>-->
+        <a [routerLink]="['/actors', actor.id]">{{(i+1) + '. ' + actor.name}}</a>
+    </div>
+</div>

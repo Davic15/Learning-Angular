@@ -10,11 +10,14 @@ import { RentalListComponent } from './rental-list/rental-list.component';
 import { WatchListItemComponent } from './watch-list-item/watch-list-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ActorViewComponent } from './actor-view.component'
-import { WatchlistViewComponent } from './watch-list-view.component'
+import { WatchlistViewComponent } from './watch-list-view.component';
+import { ActorDetailsComponent } from './actor-details/actor-details.component';
+import { ActorListComponent } from './actor-list/actor-list.component'
 
 let routes = [
-  { path: '**', redirectTo: 'actors'},
-  { path: 'actors', component: ActorViewComponent },
+  //{ path: '**', redirectTo: 'actors'},
+  { path: 'actors', component: ActorListComponent },
+  { path: 'actors/:id', component: ActorDetailsComponent },
   { path: 'watchlist', component: WatchlistViewComponent },
 ];
 
@@ -25,7 +28,9 @@ let routes = [
     RentalListComponent,
     WatchListItemComponent,
     ActorViewComponent,
-    WatchlistViewComponent
+    WatchlistViewComponent,
+    ActorDetailsComponent,
+    ActorListComponent
   ],
   imports: [
     BrowserModule,
