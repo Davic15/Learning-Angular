@@ -13,12 +13,14 @@ import { ActorViewComponent } from './actor-view.component'
 import { WatchlistViewComponent } from './watch-list-view.component';
 import { ActorDetailsComponent } from './actor-details/actor-details.component';
 import { ActorListComponent } from './actor-list/actor-list.component'
+import { NotFoundComponent } from './not-found/not-found.component';
 
 let routes = [
   //{ path: '**', redirectTo: 'actors'},
   { path: 'actors', component: ActorListComponent },
   { path: 'actors/:id', component: ActorDetailsComponent },
   { path: 'watchlist', component: WatchlistViewComponent },
+  { path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({

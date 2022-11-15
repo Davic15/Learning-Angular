@@ -1,5 +1,8 @@
 <div>
     <h4>Actors</h4>
+
+    <a routerLink="/actors" [queryParams]="{sort: 'name'}">Sort by Name</a>
+
     <div 
         *ngFor="let actor of actors; index as i"
         class="bg-dark text-light p-3 rounded mb-2"
