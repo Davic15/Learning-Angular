@@ -11,6 +11,8 @@ import { routingTable } from './routes';
 import { LoginComponent } from './login/login.component';
 import { FlopListComponent } from './flop-list/flop-list.component';
 import { RentalListComponent } from './rental-list/rental-list.component';
+import { ActorListComponent } from './actor-list/actor-list.component';
+import { FlopSuggestionComponent } from './flop-suggestion/flop-suggestion.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { RentalListComponent } from './rental-list/rental-list.component';
     AppComponent,
     LoginComponent,
     FlopListComponent,
-    RentalListComponent
+    RentalListComponent,
+    ActorListComponent,
+    FlopSuggestionComponent
   ],
   imports: [
     BrowserModule, 

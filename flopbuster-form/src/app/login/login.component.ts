@@ -16,7 +16,8 @@ export class LoginComponent {
 
   login(formval: any) {
     
-    console.log(formval);
+    //console.log(formval);
     console.log('model', this.model)
+    console.log('equal', this.model === formval)
   }
 }
