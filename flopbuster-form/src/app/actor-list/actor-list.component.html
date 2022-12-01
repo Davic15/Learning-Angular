@@ -1,31 +1,70 @@
 <div>
-    <h4>Actors</h4>
-  
-    <div *ngFor="let actor of actors; index as i"
-      class="bg-dark text-light p-3 rounded mb-2"
-      (click)="editActor(actor)"
-      >
-      <span>{{(i+1) + '. ' + actor.name}}</span>
-    </div>
-  
-    <form autocomplete="off"
-    #actorForm="ngForm" (ngSubmit)="updateActor()"
+  <h4>Actors</h4>
+
+  Sort By:
+  <select [(ngModel)]="sortby" name="sortby" 
+    (change)="onSortChanged()"
+    id="sortby" class="mb-2">
+    <option value="name">Name</option>
+    <option value="appearances">Appearances</option>
+  </select>
+
+  <div *ngFor="let actor of actors; index as i"
+    class="bg-dark text-light p-3 rounded mb-2"
+    (click)="editActor(actor, actorForm.form)"
     >
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input name="name" [(ngModel)]="model.name"
-      type="text" class="form-control" id="name">
-  
-      <label for="movieTitle">Movie</label>
-      <input  name="movieTitle" [(ngModel)]="model.movieTitle"
-      type="text" class="form-control" id="movieTitle">
-  
-      <label for="credits">Credits</label>
-      <input  name="credits" [(ngModel)]="model.credits"
-       type="text" class="form-control" id="credits">
-    </div>
-  
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-  
+    <span>{{(i+1) + '. ' + actor.name}} - {{actor.credits}} appearances</span>
   </div>
+
+  <form autocomplete="off"
+  #actorForm="ngForm" (ngSubmit)="updateActor(actorForm)"
+  >
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input name="name" [(ngModel)]="model.name" #namemodel="ngModel"
+    type="text" class="form-control" id="name" required minlength="3">
+
+    <span *ngIf="namemodel.invalid && namemodel.touched">The name is required and must have at least 3 characters</span><br>
+
+    <label for="movieTitle">Movie</label>
+    <input  name="movieTitle" [(ngModel)]="model.movieTitle"
+    type="text" class="form-control" id="movieTitle" required>
+
+    <label for="credits">Credits</label>
+    <input  name="credits" [(ngModel)]="model.credits"
+     type="text" class="form-control" id="credits" required>
+
+    <div class="form-group form-check mt-3">
+      <input [(ngModel)]="model.hasOscar" name="hasOscar" type="checkbox" class="form-check-input" id="hasOscar">
+      <label class="form-check-label" for="hasOscar">Has won an Oscar</label>
+    </div>
+
+    <label for="">Current Status</label>
+    <div class="form-check">
+      
+      <input required [(ngModel)]="model.status" name="status" class="form-check-input" type="radio" id="status1" value="active">
+      <label class="form-check-label" for="status1">
+        Active
+      </label>
+    </div>
+    <div class="form-check">
+      <input required [(ngModel)]="model.status" name="status" class="form-check-input" type="radio" id="status2" value="retired">
+      <label class="form-check-label" for="status2">
+        Retired
+      </label>
+    </div>
+    
+    <div class="form-check">
+      <input required [(ngModel)]="model.status" name="status" class="form-check-input" type="radio" id="status3" value="passedaway">
+      <label class="form-check-label" for="status3">
+        Passed Away
+      </label>
+    </div>
+    
+
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>

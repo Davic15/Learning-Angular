@@ -3,4 +3,7 @@ export class Suggestion {
     title: string = '';
     year: number = 0;
     stars: number = 0;
-  }
+    rating: string = '';
+    studio: string = '';
+    hasSoundtrack: boolean = false;
+}

@@ -13,6 +13,7 @@ import { FlopListComponent } from './flop-list/flop-list.component';
 import { RentalListComponent } from './rental-list/rental-list.component';
 import { ActorListComponent } from './actor-list/actor-list.component';
 import { FlopSuggestionComponent } from './flop-suggestion/flop-suggestion.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FlopSuggestionComponent } from './flop-suggestion/flop-suggestion.compo
     FlopListComponent,
     RentalListComponent,
     ActorListComponent,
-    FlopSuggestionComponent
+    FlopSuggestionComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule, 

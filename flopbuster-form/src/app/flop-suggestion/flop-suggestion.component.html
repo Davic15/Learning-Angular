@@ -1,4 +1,3 @@
-
 <h4>Flop Suggestion</h4>
 
 <h5>Suggestion List</h5>
@@ -6,7 +5,7 @@
 <ul class="list-unstyled">
   <li *ngFor="let suggestion of suggestions"
     class="bg-dark text-light p-1 rounded mb-2"
-    (click)="editSuggestion(suggestion)"
+    (click)="editSuggestion(suggestion, suggestionForm.form)"
   >
 
     {{suggestion.title}} - {{suggestion.year}},
@@ -15,12 +14,14 @@
 </ul>
 
 <form autocomplete="off"
-  #suggestionForm="ngForm" (ngSubmit)="updateSuggestion()"
+  #suggestionForm="ngForm" (ngSubmit)="updateSuggestion(suggestionForm)"
 >
-  <div class="form-group">
-    <label for="flopname">Flop Name</label>
+  <div class="form-group" >
+    <label for="flopname">Flop Name<span *ngIf="titleModel.invalid" style="color: red">*</span></label>
     <input name="title" [(ngModel)]="model.title"
-    type="text" class="form-control" id="flopname">
+    type="text" class="form-control" id="flopname"
+    #titleModel="ngModel" required 
+    >
 
     <label for="year">Year</label>
     <input  name="year" [(ngModel)]="model.year"
@@ -31,8 +32,61 @@
      type="text" class="form-control" id="stars">
   </div>
 
+  <div class="form-group">
+    <label for="rating">Rating</label> 
+    <select [(ngModel)]="model.rating" name="rating" id="rating" class="mb-2">
+      <option value="Unrated">Unrated</option>
+      <option value="PG">PG</option>
+      <option value="PG-13">PG-13</option>
+      <option value="R">R</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="">Studio</label> 
+
+      <div class="form-check">
+      
+        <input [(ngModel)]="model.studio" class="form-check-input" type="radio" name="studio" id="studio1" value="Warner Bros.">
+        <label class="form-check-label" for="studio1">
+          Warner Bros.
+        </label>
+      </div>
+
+      <div class="form-check">
+      
+        <input [(ngModel)]="model.studio" class="form-check-input" type="radio" name="studio" id="studio2" value="Universal">
+        <label class="form-check-label" for="studio2">
+          Universal
+        </label>
+      </div>
+
+      <div class="form-check">
+      
+        <input [(ngModel)]="model.studio" class="form-check-input" type="radio" name="studio" id="studio3" value="Disney">
+        <label class="form-check-label" for="studio3">
+          Disney
+        </label>
+      </div>
+
+      <div class="form-check">
+      
+        <input [(ngModel)]="model.studio" class="form-check-input" type="radio" name="studio" id="studio4" value="Other">
+        <label class="form-check-label" for="studio4">
+          Other
+        </label>
+      </div>
+
+      
+      <div class="form-group form-check mt-3">
+        <input [(ngModel)]="model.hasSoundtrack" name="hasSoundtrack" type="checkbox" class="form-check-input" id="hasSoundtrack">
+        <label class="form-check-label" for="hasSoundtrack">Has Soundtrack</label>
+      </div>
+
+  </div>
+
   <button type="submit" class="btn btn-primary mr-1">Save</button>
   <button type="button" class="btn btn-danger"
-  (click)="cancel()"
+  (click)="cancel(suggestionForm.form)"
   >Cancel</button>
 </form>
